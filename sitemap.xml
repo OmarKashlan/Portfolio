@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/TR/xhtml11/xhtml11_schema.html http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/TR/xhtml11/xhtml11_schema.html">
+<url>
+    <loc>https://www.dmuhurdar.com/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/artistbookings/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/bookings/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/articles/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/smwork/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/yazilar/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/about/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/resume/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>https://www.dmuhurdar.com/spotify/</loc>
+    <changefreq>weekly</changefreq>
+</url>
+
+
+</urlset>
