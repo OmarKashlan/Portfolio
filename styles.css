@@ -4917,6 +4917,12 @@ body:has(#page-883303) {
     line-height: 1.1;
 }
 
+@media (max-width: 800px) {
+    .block-links .block-links .links-item .links-item__content h4 {
+        font-size: 18px;
+    }
+}
+
 .block-links .block-links .links-item .overlay {
     background-color: var(--jp-background-color);
     position: absolute;
