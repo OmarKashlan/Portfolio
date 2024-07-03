@@ -5945,7 +5945,6 @@ body:has(#page-883303) {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -5976,7 +5975,6 @@ body:has(#page-883303) {
     animation-delay: 0.4s;
 }
 
-
 /* Styles for the label animation */
 .form label {
     position: absolute;
@@ -5985,7 +5983,8 @@ body:has(#page-883303) {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid transparent;
+    padding-left: 10px;
 }
 
 .form label::after {
@@ -6003,35 +6002,33 @@ body:has(#page-883303) {
 .content-name {
     position: absolute;
     bottom: 0px;
-    left: 0px;
+    left: 10px;
     padding-bottom: 5px;
     transition: all 0.3s ease;
 }
-
-
 
 .form input:focus {
     outline: none;
 }
 
-.form input:focus+.label-name .content-name,
-.form input:valid+.label-name .content-name{
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name {
     transform: translateY(-150%);
     font-size: 14px;
-    left: 0px;
+    left: 10px;
     color: #232221;
 }
 
-.form input:focus+.label-name::after,
-.form input:valid+.label-name::after,
-.form textarea:focus+.label-name::after,
-.form textarea:valid+.label-name::after {
+.form input:focus + .label-name::after,
+.form input:valid + .label-name::after,
+.form textarea:focus + .label-name::after,
+.form textarea:valid + .label-name::after {
     transform: translateX(0%);
 }
 
 .form-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px; /* Increased margin to give more space */
 }
 
 .form-group input,
@@ -6040,7 +6037,18 @@ body:has(#page-883303) {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    border-bottom: none;
     box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Add padding to the top of the form to give space for labels to move up */
+#contact-form {
+    padding-top: 20px;
 }
 
 .block-navigation .menu-list a:hover {
