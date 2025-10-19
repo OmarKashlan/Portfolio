@@ -34,8 +34,95 @@
   <!-- Styles and Scripts -->
   <link href="styles.css" rel="stylesheet">
   <script type="text/javascript" src="scripts.js"></script>
-</head>
+    <style>
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex; /* Use flexbox for centering */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden; /* Hide it completely */
+      transition: opacity 0.3s ease, visibility 0s 0.3s;
+    }
 
+    .popup-overlay.show {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease;
+    }
+
+    .popup-content {
+      background: #ffffff;
+      color: #333; /* Dark text for readability */
+      padding: 30px;
+      border-radius: 8px;
+      position: relative;
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    .popup-overlay.show .popup-content {
+        transform: scale(1);
+    }
+
+    .popup-content h2 {
+      margin-top: 0;
+      color: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    .popup-content p {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .popup-close:hover {
+      color: #000;
+    }
+    
+    .popup-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #007bff; /* A standard blue button */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    
+    .popup-button:hover {
+        background-color: #0056b3;
+    }
+  </style>
+</head>
 
 <body data-global-block-id="178770" id="" data-transparent-header="false" data-button-style-hover="slide-up"
   data-animation-style="fade-in">
@@ -417,6 +504,65 @@
     var PAGE_ID = 24786
     var PORTFOLIO_CAPTCHA_PUBLIC_KEY = "6Lc4J9AZAAAAAE_D0CZHclTobtIsztATjQR1bwYZ";
   </script>
+                            <div class="popup-overlay" id="update-popup">
+  <div class="popup-content">
+    <span class="popup-close" id="popup-close-btn">&times;</span>
+    <h2>Portfolio Update!</h2>
+    <p>Please note that this version of my portfolio is slightly outdated. I am currently building a new, improved version using <strong>Nuxt.js</strong> and <strong>Vue.js</strong>. Stay tuned!</p>
+    <button class="popup-button" id="popup-ok-btn">Got it!</button>
+  </div>
+</div>
+
+<script>
+  // Wait for the DOM to be fully loaded before running the script
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    // Check if the user has already seen the popup during this session
+    if (!sessionStorage.getItem('popupShown')) {
+      const popupOverlay = document.getElementById('update-popup');
+      const closeBtn = document.getElementById('popup-close-btn');
+      const okBtn = document.getElementById('popup-ok-btn');
+
+      // Function to show the popup
+      function showPopup() {
+        if (popupOverlay) {
+          popupOverlay.classList.add('show');
+        }
+      }
+
+      // Function to hide the popup
+      function hidePopup() {
+        if (popupOverlay) {
+          popupOverlay.classList.remove('show');
+          // Set a flag in sessionStorage so it doesn't show again this session
+          sessionStorage.setItem('popupShown', 'true');
+        }
+      }
+
+      // Show the popup after a short delay (e.g., 500ms)
+      setTimeout(showPopup, 500);
+
+      // Add event listeners to close the popup
+      if (closeBtn) {
+        closeBtn.addEventListener('click', hidePopup);
+      }
+      
+      if (okBtn) {
+        okBtn.addEventListener('click', hidePopup);
+      }
+
+      // Close popup if the user clicks on the overlay (outside the content box)
+      if (popupOverlay) {
+        popupOverlay.addEventListener('click', function(event) {
+          // Check if the click is on the overlay itself, not the content
+          if (event.target === popupOverlay) {
+            hidePopup();
+          }
+        });
+      }
+    }
+  });
+</script>
 </body>
 
 </html>
